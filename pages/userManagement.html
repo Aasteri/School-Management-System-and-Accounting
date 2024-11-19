@@ -1,0 +1,65 @@
+<div id="userManagement" class="page">
+    <div class="container">
+        <h2>User Management</h2>
+        
+        <!-- Add User Form -->
+        <div class="card">
+            <h3>Add New User</h3>
+            <form id="addUserForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="role">Role</label>
+                    <select id="role" name="role" required>
+                        <option value="">Select Role</option>
+                        <option value="teacher">Teacher</option>
+                        <option value="student">Student</option>
+                        <option value="parent">Parent</option>
+                        <option value="accountant">Accountant</option>
+                        <option value="non_teaching">Non-Teaching Staff</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary">Add User</button>
+            </form>
+        </div>
+
+        <!-- Bulk Upload Form -->
+        <div class="card">
+            <h3>Bulk Upload Users</h3>
+            <form id="bulkUploadForm">
+                <div class="form-group">
+                    <label for="uploadUsers">Upload Excel File</label>
+                    <input type="file" id="uploadUsers" accept=".xlsx,.xls" required>
+                    <span id="fileName"></span>
+                </div>
+                <button type="submit" class="btn-primary">Upload Users</button>
+            </form>
+        </div>
+
+        <!-- User List -->
+        <div class="card">
+            <h3>User List</h3>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userList"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

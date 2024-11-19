@@ -1,0 +1,73 @@
+// Role definitions and permissions
+const ROLES = {
+    ADMIN: 'admin',
+    HEADMASTER: 'headmaster',
+    TEACHER: 'teacher',
+    STUDENT: 'student',
+    PARENT: 'parent',
+    ACCOUNTANT: 'accountant',
+    NON_TEACHING: 'non_teaching',
+    PROPRIETOR: 'proprietor'
+};
+
+const PERMISSIONS = {
+    VIEW_DASHBOARD: 'view_dashboard',
+    MANAGE_STUDENTS: 'manage_students',
+    MANAGE_TEACHERS: 'manage_teachers',
+    MANAGE_ATTENDANCE: 'manage_attendance',
+    VIEW_ATTENDANCE: 'view_attendance',
+    MANAGE_GRADES: 'manage_grades',
+    VIEW_GRADES: 'view_grades',
+    MANAGE_FINANCES: 'manage_finances',
+    VIEW_FINANCES: 'view_finances',
+    MANAGE_ASSETS: 'manage_assets',
+    MANAGE_PROJECTS: 'manage_projects',
+    GENERATE_ID_CARDS: 'generate_id_cards',
+    MANAGE_TODOS: 'manage_todos'
+};
+
+const ROLE_PERMISSIONS = {
+    [ROLES.ADMIN]: Object.values(PERMISSIONS),
+    [ROLES.HEADMASTER]: [
+        PERMISSIONS.VIEW_DASHBOARD,
+        PERMISSIONS.MANAGE_STUDENTS,
+        PERMISSIONS.MANAGE_TEACHERS,
+        PERMISSIONS.MANAGE_ATTENDANCE,
+        PERMISSIONS.MANAGE_GRADES,
+        PERMISSIONS.VIEW_FINANCES,
+        PERMISSIONS.MANAGE_PROJECTS,
+        PERMISSIONS.GENERATE_ID_CARDS
+    ],
+    [ROLES.TEACHER]: [
+        PERMISSIONS.VIEW_DASHBOARD,
+        PERMISSIONS.VIEW_ATTENDANCE,
+        PERMISSIONS.MANAGE_ATTENDANCE,
+        PERMISSIONS.MANAGE_GRADES,
+        PERMISSIONS.MANAGE_TODOS
+    ],
+    [ROLES.STUDENT]: [
+        PERMISSIONS.VIEW_DASHBOARD,
+        PERMISSIONS.VIEW_ATTENDANCE,
+        PERMISSIONS.VIEW_GRADES,
+        PERMISSIONS.MANAGE_TODOS
+    ],
+    [ROLES.PARENT]: [
+        PERMISSIONS.VIEW_DASHBOARD,
+        PERMISSIONS.VIEW_ATTENDANCE,
+        PERMISSIONS.VIEW_GRADES,
+        PERMISSIONS.MANAGE_TODOS
+    ],
+    [ROLES.ACCOUNTANT]: [
+        PERMISSIONS.VIEW_DASHBOARD,
+        PERMISSIONS.MANAGE_FINANCES,
+        PERMISSIONS.MANAGE_TODOS
+    ],
+    [ROLES.NON_TEACHING]: [
+        PERMISSIONS.VIEW_DASHBOARD,
+        PERMISSIONS.MANAGE_ASSETS,
+        PERMISSIONS.MANAGE_TODOS
+    ],
+    [ROLES.PROPRIETOR]: Object.values(PERMISSIONS)
+};
+
+export { ROLES, PERMISSIONS, ROLE_PERMISSIONS };
